@@ -34,7 +34,17 @@ const server = http.createServer((req, res) => {
     // Do not edit above this line
 
     // define route handlers here
+      if(req.method === 'GET' && req.url==='/'){
+        res.statusCode=200;
+        res.setHeader('Content-Type', 'text/plain');
+        return res.end('Dog Club')
+      };
 
+      if(req.method === 'GET' && req.url ==='/dogs'){
+        res.statusCode=200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('Dogs index');
+      }
     // Do not edit below this line
     // Return a 404 response when there is no matching route handler
     res.statusCode = 404;
@@ -42,6 +52,8 @@ const server = http.createServer((req, res) => {
     return res.end('No matching route handler found for this endpoint');
   });
 });
+
+
 
 const port = 5000;
 
